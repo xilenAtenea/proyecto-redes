@@ -88,7 +88,7 @@ foreach ($resp as $item) {
         marker.bindPopup("<?php 
         echo "<a href='$item->link'> Ir a FincaRaiz </a><br>";
         echo "Precio: $item->precio<br>";
-        echo "Habitaciones: $item->cant_h<br>";
+        echo "Habitaciones disponibles: $item->hab_disponibles / $item->cant_h<br>";
         echo "<form action='forms.php' method='post'>";
         echo "<input type='hidden' name='id_apto' value='$item->id_apto'>";
         echo "<input type='submit' value='POSTULARME'>";

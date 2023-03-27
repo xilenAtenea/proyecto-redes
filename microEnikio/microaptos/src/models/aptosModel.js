@@ -50,7 +50,7 @@ async function getCoords(nombre) {
 
 
 async function getCloseAptos(coord) {
-    const result = await connection.query(`SELECT   id_apto,   precio,   cant_h,   ROUND(ST_Distance_Sphere(coord, ST_GeomFromText('${coord}')) / 1000, 2) AS distance_km, link, coord FROM   aptos WHERE ST_Distance_Sphere(coord, ST_GeomFromText('${coord}')) <= 2000 AND coord IS NOT NULL AND hab_disponibles > 0 ORDER BY distance_km ASC LIMIT 100;`)
+    const result = await connection.query(`SELECT   id_apto,   precio,   cant_h, hab_disponibles, ROUND(ST_Distance_Sphere(coord, ST_GeomFromText('${coord}')) / 1000, 2) AS distance_km, link, coord FROM   aptos WHERE ST_Distance_Sphere(coord, ST_GeomFromText('${coord}')) <= 2000 AND coord IS NOT NULL AND hab_disponibles > 0 ORDER BY distance_km ASC LIMIT 100;`)
     return result[0];
 }
 
